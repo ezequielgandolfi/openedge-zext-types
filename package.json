@@ -1,6 +1,6 @@
 {
   "name": "@oe-zext/types",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Type library for OpenEdge-ZExt",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

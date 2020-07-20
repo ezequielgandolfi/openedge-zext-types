@@ -64,28 +64,32 @@ export interface IRange extends IUri {
 }
 
 export interface IType {
-    type: any;
+    type: '';
 }
 
-export interface Field extends IType {
+export interface Field extends Omit<IType, 'type'> {
+    type: TYPE.FIELD;
     name: string;
     dataType?: string;
     likeType?: string;
     additional?: string;
 }
 
-export interface Variable extends Field, IPosition {
+export interface Variable extends Omit<Field, 'type'>, IPosition {
+    type: TYPE.VARIABLE;
     bufferType?: string;
     position?: vscode.Position;
     uri?: vscode.Uri;
     scope?: SCOPE;
 }
 
-export interface Parameter extends Variable {
+export interface Parameter extends Omit<Variable, 'type'> {
+    type: TYPE.PARAMETER;
     direction?: PARAM_DIRECTION;
 }
 
-export interface Method extends IType, IRange {
+export interface Method extends Omit<IType, 'type'>, IRange {
+    type: TYPE.METHOD;
     name: string;
     visibility: VISIBILITY;
     kind: METHOD_KIND;
@@ -95,13 +99,15 @@ export interface Method extends IType, IRange {
     localVariables?: Variable[];
 }
 
-export interface Include extends IType, IUri {
+export interface Include extends Omit<IType, 'type'>, IUri {
+    type: TYPE.INCLUDE;
     name: string;
     uri?: vscode.Uri;
     document?: vscode.TextDocument;
 }
 
-export interface TempTable extends IType, IRange {
+export interface TempTable extends Omit<IType, 'type'>, IRange {
+    type: TYPE.TEMP_TABLE;
     name: string;
     fields?: Field[];
     indexes?: any[]; // not used at this moment
