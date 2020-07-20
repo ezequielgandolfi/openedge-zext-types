@@ -1,7 +1,9 @@
 import { Parameter, TempTable, Method, Variable, Field, IPosition, IRange, TYPE, IUri } from './abl';
+import { AblType } from '.';
 
 export class AblTypeCheck {
 
+    //#region Type Check
     static isField(object: any): object is Field {
         if (!object) return false;
         return object.type == TYPE.FIELD;
@@ -41,5 +43,12 @@ export class AblTypeCheck {
         if (!object) return false;
         return 'uri' in object;
     }
+    //#endregion
+
+    //#region Type tranform
+    static variable2parameter(object: AblType.Variable): AblType.Parameter {
+        return { ...object, type: AblType.TYPE.PARAMETER };
+    }
+    //#endregion
 
 }
