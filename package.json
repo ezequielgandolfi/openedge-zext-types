@@ -2,8 +2,8 @@
   "name": "@oe-zext/types",
   "version": "1.0.1",
   "description": "Type library for OpenEdge-ZExt",
-  "main": "out/index.js",
-  "types": "out/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "compile": "tsc",
     "build": "npm run compile"
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/ezequielgandolfi/openedge-zext-types#readme",
   "files": [
-    "out/**/*"
+    "lib/**/*"
   ],
   "devDependencies": {
     "@types/vscode": "1.46.0",
